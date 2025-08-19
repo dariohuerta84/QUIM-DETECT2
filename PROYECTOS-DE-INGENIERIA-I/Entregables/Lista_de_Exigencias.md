@@ -1,8 +1,8 @@
 # Lista de Exigencias – *QUIM DETECT*
 
-| **Proyecto** | Diseño y desarrollo de un sistema para la detección de variaciones en la huella espectral de fresas mediante espectroscopía y análisis multicanal | **Fecha:** 18/08/25 |
+| **Proyecto** | Diseño y desarrollo de un sistema para la detección de variaciones en la huella espectral de fresas mediante espectroscopía y análisis multicanal | **Fecha:** 19/08/25 |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|
-| **Cliente**  | Universidad Peruana Cayetano Heredia                                                                                                          | **Edición:** Rev. 1 |
+| **Cliente**  | Universidad Peruana Cayetano Heredia                                                                                                          | **Edición:** Rev. 3 |
 | **Elaborado**| Dario Huerta, Jorge Roldan, Juan López, Andrés Rodas, Camilla Pacora                                                                                                                            |                      |
 
 | Fecha     | Tipo | Exigencia / Deseo | Descripción | Responsable |
