@@ -1,5 +1,5 @@
 # QUIM-DETECT2
-🍓 Proyecto ODS 12 - Detección de Variaciones en la Huella Espectral de Fresas
+## 🍓 Proyecto ODS 12 - Detección de Variaciones en la Huella Espectral de Fresas
 
 Este repositorio documenta el diseño y desarrollo de un sistema portátil para la detección de variaciones en la huella espectral de fresas utilizando espectroscopía de reflexión y análisis multicanal. El sistema está orientado a la evaluación no destructiva de calidad y potencial contaminación en fresas, promoviendo prácticas de producción y consumo más responsables.
 
