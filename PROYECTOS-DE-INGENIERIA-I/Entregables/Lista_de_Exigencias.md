@@ -1,4 +1,4 @@
-# 📄 Lista de Exigencias – *QUIM DETECT*
+# Lista de Exigencias – *QUIM DETECT*
 
 | **Proyecto** | Diseño y desarrollo de un sistema para la detección de variaciones en la huella espectral de fresas mediante espectroscopía y análisis multicanal | **Fecha:** 18/08/25 |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|
