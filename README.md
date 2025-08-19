@@ -18,8 +18,16 @@ Desarrollar un sistema capaz de:
 
 
 ## 👥 Equipo de Trabajo:
+
 - Matias Dario Huerta Cruz
 - Andres Steven Rodas Janampa 
 - Jorge Esteban Roldan Montalvan 
 - Juan Diego Lopez Vega
 - Camilla Vanessa Pacora Mendoza
+
+
+## 🎓 Proyecto Académico
+
+Este repositorio fue desarrollado para el curso ** Proyectos de Ingeniería - 2025-II**  
+Universidad Peruana Cayetano Heredia (UPCH)  
+Facultad de Ciencias e Ingeniería – Carrera de Ingeniería Informática
