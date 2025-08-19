@@ -1,1 +1,1 @@
-# QUIM-DETECT2
+# Carpeta Imagenes
