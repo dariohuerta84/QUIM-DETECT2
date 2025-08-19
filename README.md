@@ -17,7 +17,7 @@ Desarrollar un sistema capaz de:
 - Facilitar decisiones informadas en la cadena de suministro alimentaria.
 
 
-## 👥 Integrantes:
+## 👥 Equipo de Trabajo:
 - Matias Dario Huerta Cruz
 - Andres Steven Rodas Janampa 
 - Jorge Esteban Roldan Montalvan 
