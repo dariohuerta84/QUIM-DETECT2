@@ -28,6 +28,6 @@ Desarrollar un sistema capaz de:
 
 ## 🎓 Proyecto Académico
 
-Este repositorio fue desarrollado para el curso ** Proyectos de Ingeniería - 2025-II**  
+Este repositorio fue desarrollado para el curso **Proyectos de Ingeniería 1 - 2025-II**  
 Universidad Peruana Cayetano Heredia (UPCH)  
 Facultad de Ciencias e Ingeniería – Carrera de Ingeniería Informática
