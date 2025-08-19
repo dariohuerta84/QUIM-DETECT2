@@ -1,7 +1,7 @@
 # QUIM-DETECT2
 Integrantes:
 - Matias Dario Huerta Cruz
-- Andres Steven Rodas 
-- Jorge Esteban Roldan
+- Andres Steven Rodas Janampa 
+- Jorge Esteban Roldan Montalvan 
 - Juan Diego Lopez Vega
-- Camilla Vanessa Pacora
+- Camilla Vanessa Pacora Mendoza
