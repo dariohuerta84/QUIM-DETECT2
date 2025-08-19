@@ -5,7 +5,6 @@ Este repositorio documenta el diseño y desarrollo de un sistema portátil para 
 
 El proyecto se alinea con el **Objetivo de Desarrollo Sostenible (ODS) 12: Producción y Consumo Responsables**, y particularmente con la **meta 12.4**, que busca lograr la gestión ecológicamente racional de los productos químicos y todos los desechos a lo largo de su ciclo de vida, minimizando sus impactos negativos sobre la salud humana y el medio ambiente.
 
----
 
 ## 🎯 Objetivo del Proyecto
 
