@@ -16,6 +16,7 @@ Desarrollar un sistema capaz de:
 - Realizar análisis multicanal y procesamiento de datos para identificar patrones relevantes.
 - Facilitar decisiones informadas en la cadena de suministro alimentaria.
 
+![Fresas](PROYECTOS-DE-INGENIERIA-I/Imagenes/fresas.jpg)
 
 ## 👥 Equipo de Trabajo:
 
