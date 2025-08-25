@@ -1,2 +1,3 @@
 # 📦CAJA NEGRA 
-![Caja Negra](PROYECTOS-DE-INGENIERIA-I/Imagenes/Caja_negra.jpeg)
+![Caja Negra](../Imagenes/Caja_negra.jpeg)
+
