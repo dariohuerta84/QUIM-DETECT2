@@ -18,4 +18,3 @@
 | 26/08/25 | E | Evaluación | El sistema debe permitir realizar análisis espectrales y preprocesamiento de datos para evaluar la presencia de residuos químicos de manera confiable. | AR, CP |
 | 01/09/25 | E | Selección | Implementación de métodos de aprendizaje automático para clasificación de resultados basados en los datos adquiridos. | JL |
 | 08/09/25 | E | Visualización | Generación de representaciones gráficas y mapas de los datos obtenidos para facilitar interpretación de resultados. | JR, DH |
-| 09/09/25 | E | Comparación | Comparación de métodos y selección de la alternativa más adecuada para la aplicación. | CP |
