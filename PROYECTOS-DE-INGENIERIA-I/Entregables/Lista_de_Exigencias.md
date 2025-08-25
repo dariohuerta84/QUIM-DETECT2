@@ -9,7 +9,7 @@
 |-----------|------|------------------|-------------|-------------|
 | 18/08/25 | E | Función Principal | Detectar variaciones en la huella espectral de fresas mediante análisis multicanal y técnicas de procesamiento, con el fin de identificar posibles residuos químicos y contribuir a la prevención de riesgos para la salud del consumidor. | JL, DH, JR |
 | 18/08/25 | E | Hardware | El sistema debe integrar los dispositivos necesarios para adquisición de datos , imagenes,señales, frecuencia y control de iluminación, incluyendo un mecanismo que permita rotación o movimiento controlado de las muestras para garantizar cobertura completa. Se exige geometría y repetibilidad, estabilidad en la adquisición, separación de señales, alimentación regulada y bajo ruido.| JL, DH, JR |
-| 25/08/25 | D | Control | El software debe permitir la inicialización y control del sistema de manera general. | JL, AR |
+| 25/08/25 | D | Control | El software debe permitir el inicio y control del sistema de manera general. | JL, AR |
 | 25/08/25 | D | Adquisición de Datos | El software debe capturar los datos de forma consistente y verificable, asegurando que no se pierdan mediciones. | JL, AR |
 | 25/08/25 | D | Procesamiento de Señales | El software debe procesar los datos para obtener resultados confiables y repetibles, incluyendo validaciones básicas y filtrado general de información. | JL, AR |
 | 25/08/25 | D | Comunicación | El software debe transmitir los datos de manera estructurada a un módulo receptor o almacenamiento externo, asegurando integridad y consistencia. | JL, AR |
