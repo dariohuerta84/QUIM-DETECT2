@@ -1,5 +1,6 @@
 # 📦Caja Negra 
-![Caja Negra](../Imagenes/Caja_negra.jpeg)
+![Caja Negra](../Imagenes/Caja_Negra.png)
+
 
 🔗 [Ver en Draw.io](https://app.diagrams.net/#G1jx3XUJulqEHMiZ95NdmwGDe8fgNdj5zd#%7B%22pageId%22%3A%22B8XTpHp7p6XBmzQAhsuS%22%7D)
 
