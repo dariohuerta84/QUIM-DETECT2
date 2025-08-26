@@ -6,3 +6,12 @@
 
 # ⚙️Esquema de Funciones 
 ![Esquema de Funciones](../Imagenes/Esquema_Funciones.jpeg)
+
+🔗 [Ver en Draw.io](https://app.diagrams.net/?lightbox=1&edit=_YOUR_LINK_)
+
+
+
+# 📱 Caja Negra – App TanoSpectra
+![Caja Negra App](../Imagenes/Caja_negra_app.jpeg)  
+
+🔗 [Ver en Draw.io](https://app.diagrams.net/?lightbox=1&edit=_YOUR_LINK_)
