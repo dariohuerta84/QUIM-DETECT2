@@ -12,6 +12,6 @@
 
 
 # 📱 Caja Negra – App TanoSpectra
-![Caja Negra App](../Imagenes/Caja_negra_app.jpeg)  
+![Caja Negra App](../Imagenes/CAJA_NEGRA_APP.png)  
 
-🔗 [Ver en Draw.io](https://app.diagrams.net/?lightbox=1&edit=_YOUR_LINK_)
+🔗 [Ver en Draw.io](https://app.diagrams.net/#G1rWM1FSlPOJzXhhvO3CIIONgmZpNr90bF#%7B%22pageId%22%3A%22U6wzN8fkbURlSwQlV9s4%22%7D)
