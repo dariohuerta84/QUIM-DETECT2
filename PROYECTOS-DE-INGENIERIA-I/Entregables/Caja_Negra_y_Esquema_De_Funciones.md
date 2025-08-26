@@ -9,7 +9,7 @@
 ![Esquema de Funciones](../Imagenes/Esquema_Funciones.jpeg)
 
 
-🔗 [Ver en Draw.io](https://app.diagrams.net/#G1iHN4fA3m1PzcGaVWDI4e6vaWyWay0yBb#%7B%22pageId%22%3A%22CBykIh4lYeikur8QPyQ6%22%7D)
+🔗 [Ver en Draw.io](https://app.diagrams.net/?splash=0#G1iHN4fA3m1PzcGaVWDI4e6vaWyWay0yBb#%7B%22pageId%22%3A%22IHva0W9uEzjMm_keQjf-%22%7D)
 
 
 
