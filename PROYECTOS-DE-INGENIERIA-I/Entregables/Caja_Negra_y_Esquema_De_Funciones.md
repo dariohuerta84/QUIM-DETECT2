@@ -5,7 +5,8 @@
 
 
 # ⚙️Esquema de Funciones 
-![Esquema de Funciones](../Imagenes/Esquema_Funciones.jpeg)
+![Esquema de Funciones](../Imagenes/Esquema_Funciones.png)
+
 
 🔗 [Ver en Draw.io](https://app.diagrams.net/#G1iHN4fA3m1PzcGaVWDI4e6vaWyWay0yBb#%7B%22pageId%22%3A%22CBykIh4lYeikur8QPyQ6%22%7D)
 
