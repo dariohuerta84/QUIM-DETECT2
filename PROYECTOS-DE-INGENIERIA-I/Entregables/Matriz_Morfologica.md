@@ -6,4 +6,6 @@
 
 ![matriz3](../Imagenes/matriz3.png)
 
+![matriz4](../Imagenes/matriz4.png)
+
 ---
