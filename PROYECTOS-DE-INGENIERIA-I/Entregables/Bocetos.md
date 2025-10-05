@@ -19,7 +19,7 @@ El sistema captura la firma espectral completa del fruto, ofreciendo alta precis
 - **Costo elevado** de los sensores multiespectrales (fuera del alcance de pequeños productores).  
 - Difícil mantenimiento y calibración.  
 
-![B1](../Imagenes/B1.png)
+![B1](../Imagenes/B1.jpg)
 
 **Conclusión:**  
 Fue descartado por su alto costo, aunque sirvió como referencia teórica para definir los rangos espectrales ideales.
@@ -41,7 +41,7 @@ Incluye una **pequeña pantalla** que muestra resultados instantáneos de contam
 - Mayor consumo energético y complejidad electrónica.  
 
 
-![B2](../Imagenes/B2.png)
+![B2](../Imagenes/B2.jpg)
 
 **Conclusión:**  
 Aunque innovador, su precio y mantenimiento limitan su aplicación práctica en campo.
@@ -61,7 +61,7 @@ El sistema incluye una **caja protectora opaca** para evitar interferencias de l
 
 
 
-![B3](../Imagenes/B3.png)
+![B3](../Imagenes/B3.jpg)
 
 
 **Conclusión:**  
@@ -69,6 +69,7 @@ Seleccionado como **modelo final** por su equilibrio entre precisión, accesibil
 Representa una solución práctica para la detección de residuos de profenofos en frutas.
 
 ---
+
 
 
 
