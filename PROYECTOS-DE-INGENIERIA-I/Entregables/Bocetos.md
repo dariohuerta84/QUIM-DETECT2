@@ -70,15 +70,7 @@ Representa una solución práctica para la detección de residuos de profenofos 
 
 ---
 
-### ✨ **Resumen Comparativo**
 
-| Boceto | Sensor principal | Costo | Portabilidad | Complejidad | Estado |
-|:-------|:-----------------|:------:|:--------------:|:-------------:|:--------:|
-| 1 | Cámara multiespectral | 💰💰💰 | 🧳 | ⚙️⚙️⚙️ | Descartado |
-| 2 | Escáner UV con pantalla | 💰💰 | 🧳🧳 | ⚙️⚙️ | Descartado |
-| 3 | Sensor AS7343 (VIS/NIR) | 💰 | 🧳🧳🧳 | ⚙️ | **En desarrollo ✅** |
-
----
 
 
 
