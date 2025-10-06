@@ -61,7 +61,7 @@ El sistema incluye una **caja protectora opaca** para evitar interferencias de l
 
 
 
-![B3](../Imagenes/B3.jpg)
+![B3](../Imagenes/B3.png)
 
 
 **Conclusión:**  
@@ -69,6 +69,7 @@ Seleccionado como **modelo final** por su equilibrio entre precisión, accesibil
 Representa una solución práctica para la detección de residuos de profenofos en frutas.
 
 ---
+
 
 
 
