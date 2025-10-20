@@ -79,7 +79,7 @@ Los precios están expresados en **soles peruanos (S/.)**, basados en componente
 |-------------|------------------------|--------------------------|----------------|
 | **Boceto 1** | 3,870 | 2.90 | Demasiado costoso; poca viabilidad económica. |
 | **Boceto 2** | 290 | 3.40 | Económico pero de baja precisión espectral. |
-| **🟢 Boceto 3** | **214** | **4.25** | **Ganador: equilibrio óptimo entre costo, precisión y simplicidad.** |
+| **Boceto 3** | **214** | **4.25** | **Ganador: equilibrio óptimo entre costo, precisión y simplicidad.** |
 
 ---
 
@@ -97,6 +97,7 @@ Tras los análisis **tecnológico y económico**, el **Boceto 3 – Sistema AS73
 >  **Boceto 3 es el diseño seleccionado para la etapa de prototipo funcional.**
 
 ---
+
 
 
 
