@@ -1,17 +1,5 @@
 
 
-## ⚙️ Arquitectura del Sistema
-
-**Flujo general de operación:**
-
-1. **Calibración inicial**: el brazo se mueve hasta el switch para fijar el punto de referencia.  
-2. **Rotación**: la fresa gira mediante un motor para obtener lecturas desde distintos ángulos.  
-3. **Medición**: el sensor **AS7343** capta los valores espectrales (F1–F13, CLEAR, NIR, DARK).  
-4. **Transmisión de datos**: el Arduino envía los valores hacia **Google Colab** por Serial.  
-5. **Procesamiento**: Colab calcula índices espectrales, genera gráficos y clasifica la muestra como *alta, media o baja concentración de profenofos*.
-
----
-
 ## 🧩 Análisis Tecnológico – Evaluación de Alternativas
 
 | **Subfunción** | **Boceto 1 – Cámara multiespectral** | **Boceto 2 – Escáner UV con pantalla** | **Boceto 3 – Sistema AS7343 con caja giratoria** |
@@ -109,5 +97,6 @@ Tras los análisis **tecnológico y económico**, el **Boceto 3 – Sistema AS73
 > ✅ **Boceto 3 es el diseño seleccionado para la etapa de prototipo funcional.**
 
 ---
+
 
 
