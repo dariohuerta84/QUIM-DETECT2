@@ -1,10 +1,10 @@
 
 
-## 🧩 Análisis Tecnológico – Evaluación de Alternativas
+# 🧩 Análisis Tecnológico 
 
 | **Subfunción** | **Boceto 1 – Cámara multiespectral** | **Boceto 2 – Escáner UV con pantalla** | **Boceto 3 – Sistema AS7343 con caja giratoria** |
 |----------------|--------------------------------------|-----------------------------------------|--------------------------------------------------|
-| **Rotar fresa / toma de muestra** | No aplica (captura fija) | Sin movimiento | Motor DC con reductora |
+| **Rotar fresa / toma de muestra** | No aplica (captura fija) | Sin movimiento | Motor paso a paso con brazo rotable |
 | **Detección** | Cámara multiespectral de alta gama | LED UV + fotodiodo TEMP6000 | Sensor AS7343 visible/NIR |
 | **Control y adquisición** | Raspberry Pi | ESP32 | Arduino Nano 33 IoT |
 | **Procesamiento de datos** | Software propietario | Pantalla LCD con lógica simple | Google Colab (Python) |
@@ -41,7 +41,7 @@
 
 ---
 
-## 💰 Análisis Económico
+# 💰 Análisis Económico
 
 Este análisis compara los **costos estimados** de los tres bocetos desarrollados durante la fase de diseño.  
 Los precios están expresados en **soles peruanos (S/.)**, basados en componentes disponibles localmente.
@@ -97,6 +97,7 @@ Tras los análisis **tecnológico y económico**, el **Boceto 3 – Sistema AS73
 > ✅ **Boceto 3 es el diseño seleccionado para la etapa de prototipo funcional.**
 
 ---
+
 
 
 
