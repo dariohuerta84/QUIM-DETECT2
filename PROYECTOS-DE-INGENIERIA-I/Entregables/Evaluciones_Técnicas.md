@@ -1,6 +1,6 @@
 
 
-# 🧩 Análisis Tecnológico 
+#  Análisis Tecnológico 
 
 | **Subfunción** | **Boceto 1 – Cámara multiespectral** | **Boceto 2 – Escáner UV con pantalla** | **Boceto 3 – Sistema AS7343 con caja giratoria** |
 |----------------|--------------------------------------|-----------------------------------------|--------------------------------------------------|
@@ -13,7 +13,7 @@
 
 ---
 
-## ⚖️ Criterios de Evaluación Tecnológica
+##  Criterios de Evaluación Tecnológica
 
 | **Criterio** | **Peso** |
 |---------------|----------|
@@ -27,7 +27,7 @@
 
 ---
 
-### 📊 Ponderación de los 3 Bocetos
+###  Ponderación de los 3 Bocetos
 
 | **Criterio** | **Peso** | **Boceto 1** | **Boceto 2** | **Boceto 3** | **P*B1** | **P*B2** | **P*B3** |
 |---------------|----------|--------------|--------------|--------------|-----------|-----------|-----------|
@@ -41,7 +41,7 @@
 
 ---
 
-# 💰 Análisis Económico
+# Análisis Económico
 
 Este análisis compara los **costos estimados** de los tres bocetos desarrollados durante la fase de diseño.  
 Los precios están expresados en **soles peruanos (S/.)**, basados en componentes disponibles localmente.
@@ -73,7 +73,7 @@ Los precios están expresados en **soles peruanos (S/.)**, basados en componente
 
 ---
 
-## 🧮 Comparación Global
+##  Comparación Global
 
 | **Boceto** | **Costo total (S/.)** | **Puntaje tecnológico** | **Conclusión** |
 |-------------|------------------------|--------------------------|----------------|
@@ -83,7 +83,7 @@ Los precios están expresados en **soles peruanos (S/.)**, basados en componente
 
 ---
 
-## 🧩 Conclusión Final
+##  Conclusión Final
 
 Tras los análisis **tecnológico y económico**, el **Boceto 3 – Sistema AS7343 con caja giratoria automatizada** resulta ser la opción **más viable y eficiente** para el proyecto **QUIM-DETECT2**.
 
@@ -94,9 +94,10 @@ Tras los análisis **tecnológico y económico**, el **Boceto 3 – Sistema AS73
 - Bajo consumo energético y mantenimiento simple.
 
 **Resultado final:**
-> ✅ **Boceto 3 es el diseño seleccionado para la etapa de prototipo funcional.**
+>  **Boceto 3 es el diseño seleccionado para la etapa de prototipo funcional.**
 
 ---
+
 
 
 
