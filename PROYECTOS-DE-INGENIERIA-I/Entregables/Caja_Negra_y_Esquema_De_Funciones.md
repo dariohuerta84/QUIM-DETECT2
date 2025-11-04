@@ -12,7 +12,7 @@
 
 
 # ⚙️Esquema de Funciones 
-![Esquema de Funciones](https://raw.githubusercontent.com/AndresRJ18/QUIM-DETECT2/main/PROYECTOS-DE-INGENIERIA-I/Imagenes/esquema_funciones.png)
+![Esquema de Funciones](https://raw.githubusercontent.com/AndresRJ18/QUIM-DETECT2/main/PROYECTOS-DE-INGENIERIA-I/Imagenes/EsquemaFinal.jpg)
 
 
 
