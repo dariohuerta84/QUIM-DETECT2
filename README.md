@@ -1,4 +1,4 @@
-# 🍓 QUIM-DETECT2  
+# QUIM-DETECT2  🍓🍓🍓
 ### Sistema Portátil de Detección de Pesticidas en Fresas mediante Espectroscopía VIS/NIR  
 
 **QUIM-DETECT2** es un proyecto de investigación aplicada orientado al desarrollo de un **dispositivo portátil, económico y no destructivo** para la detección del pesticida organofosforado **Profenofos** en fresas, utilizando **espectroscopía de reflexión VIS/NIR (350–1000 nm)** y **análisis multivariante con Machine Learning**.  
