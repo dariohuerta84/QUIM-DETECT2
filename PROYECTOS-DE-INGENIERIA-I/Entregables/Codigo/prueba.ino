@@ -31,7 +31,7 @@ SfeAS7343ArdI2C mySensor;
 
 // CONFIGURACIÓN DE MOVIMIENTO
 const int NIVELES_Z = 3;               // Total de alturas (Pisos)
-const long PASOS_ENTRE_NIVELES = 100; // Distancia para subir de piso SE CAMBIO DE 2000 A 100 3/12
+const long PASOS_ENTRE_NIVELES = 120; // Distancia para subir de piso SE CAMBIO DE 2000 A 100 3/12
 const int PUNTOS_POR_VUELTA = 12;      // Cuántas lecturas por giro completo
 const int PASOS_POR_GIRO = 170;        // Pasos para girar al siguiente punto
 
