@@ -1,184 +1,181 @@
-#include <AccelStepper.h>
+#include <AccelStepper.h> //CODIGO BUENO
 #include <SparkFun_AS7343.h>
 #include <Wire.h>
 
-// ================================================================
-// >>> CONFIGURACIÓN MOTOR (28BYJ-48 / Actuador) <<<
-// ================================================================
-#define MOTOR_INTERFACE_TYPE 4
-// Pines del motor: IN1=10, IN2=9, IN3=8, IN4=7
-AccelStepper stepper(MOTOR_INTERFACE_TYPE, 11, 10, 9, 8);
+// ==========================================
+// 1. CONEXIONES (ESP32)
+// ==========================================
+// MOTOR Z (Actuador) -> Pines: 26, 25, 33, 32
+#define Z_IN1 26
+#define Z_IN2 25
+#define Z_IN3 33
+#define Z_IN4 32
 
-// He movido estos pines para que no choquen con el pin 7 del motor
-const int ENA = 6; 
-const int ENB = 7; 
+// MOTOR R (Giro) -> Pines: 13, 12, 14, 27
+// OJO: Si no prende, desconecta el pin 12 un momento.
+#define R_IN1 13
+#define R_IN2 12
+#define R_IN3 14
+#define R_IN4 27
 
-// AJUSTES DE MOVIMIENTO
-// NOTA: Para un 28BYJ-48, 200 pasos es muy poco (apenas un girito).
-// Una vuelta completa son aprox 2048 pasos. Ajusta DISTANCIA_TOTAL si es necesario.
-const long DISTANCIA_TOTAL = 200; 
-const unsigned long TIEMPO_PARADA_MS = 1125; 
+// SENSOR I2C -> Pines: 21, 22
+#define I2C_SDA 21
+#define I2C_SCL 22
 
-const float VELOCIDAD_MAX = 2000.0;
-const float ACELERACION   = 4000.0;
-
-// Puntos de parada
-const long POSICION_INICIO = 0;
-const long POSICION_MEDIA = DISTANCIA_TOTAL / 2; 
-const long POSICION_FINAL = DISTANCIA_TOTAL;    
-
-// Estados del sistema
-enum Estado { INICIO_AVANCE, PARADA_MEDIA, AVANCE_FINAL, PARADA_FINAL, RETORNO, COMPLETADO };
-Estado estadoActual = INICIO_AVANCE;
-unsigned long tiempoParadaInicio = 0; 
-bool medicionRealizada = false; // Control para medir solo una vez por parada
-
-// ================================================================
-// >>> CONFIGURACIÓN SENSOR (AS7343) <<<
-// ================================================================
+// ==========================================
+// 2. OBJETOS Y VARIABLES
+// ==========================================
+AccelStepper actuator(AccelStepper::FULL4WIRE, Z_IN1, Z_IN3, Z_IN2, Z_IN4);
+AccelStepper rotaryMotor(AccelStepper::FULL4WIRE, R_IN1, R_IN3, R_IN2, R_IN4);
 SfeAS7343ArdI2C mySensor;
-uint16_t myData[ksfAS7343NumChannels]; // Array para datos espectrales
 
-// ================================================================
-// >>> SETUP <<<
-// ================================================================
+// CONFIGURACIÓN DE MOVIMIENTO
+const int NIVELES_Z = 3;               // Total de alturas (Pisos)
+const long PASOS_ENTRE_NIVELES = 100; // Distancia para subir de piso SE CAMBIO DE 2000 A 100 3/12
+const int PUNTOS_POR_VUELTA = 12;      // Cuántas lecturas por giro completo
+const int PASOS_POR_GIRO = 170;        // Pasos para girar al siguiente punto
+
+// Variables internas
+int nivelActual = 0;
+int puntoActual = 0;
+uint16_t data[18]; // Buffer para datos del sensor
+
 void setup() {
-  Serial.begin(115200); // Subí la velocidad para que la lectura de datos sea rápida
-  while (!Serial) delay(100);
+  Serial.begin(115200);
+  Wire.begin(I2C_SDA, I2C_SCL);
 
-  // --- SETUP MOTOR ---
-  pinMode(ENA, OUTPUT);
-  pinMode(ENB, OUTPUT);
-  digitalWrite(ENA, HIGH);
-  digitalWrite(ENB, HIGH);
+  // Configuración de Motores
+  actuator.setMaxSpeed(600);
+  actuator.setAcceleration(200);
+  rotaryMotor.setMaxSpeed(600);
+  rotaryMotor.setAcceleration(200);
 
-  stepper.setMaxSpeed(VELOCIDAD_MAX);      
-  stepper.setAcceleration(ACELERACION);  
-  
-  // --- SETUP SENSOR ---
-  Wire.begin();
-  if (mySensor.begin() == false) {
-    Serial.println("Error: No se detecta el sensor AS7343. Revisa cables.");
-    while (1); // Se queda aquí si falla
+  // Pines como salida (para apagado total)
+  pinMode(Z_IN1, OUTPUT); pinMode(Z_IN2, OUTPUT); pinMode(Z_IN3, OUTPUT); pinMode(Z_IN4, OUTPUT);
+  pinMode(R_IN1, OUTPUT); pinMode(R_IN2, OUTPUT); pinMode(R_IN3, OUTPUT); pinMode(R_IN4, OUTPUT);
+
+  Serial.println("\n\n===================================");
+  Serial.println("   INICIANDO SISTEMA DE ESCANEO");
+  Serial.println("===================================");
+
+  // --- 1. TEST DE SENSOR ---
+  Serial.print("-> Buscando Sensor AS7343... ");
+  if (!mySensor.begin()) {
+    Serial.println("[FALLO]");
+    Serial.println("REVISA CABLES SDA (21) Y SCL (22)");
+    while(1); // Se detiene aquí si falla
   }
+  Serial.println("[OK]");
   
-  if (!mySensor.powerOn()) Serial.println("Fallo al encender LED sensor");
-  if (!mySensor.setAutoSmux(AUTOSMUX_18_CHANNELS)) Serial.println("Fallo AutoSmux");
-  if (!mySensor.enableSpectralMeasurement()) Serial.println("Fallo activar medicion");
+  // Configuración Sensor
+  mySensor.setAgain((sfe_as7343_again_t)8); // Ganancia 256x
+  mySensor.enableSpectralMeasurement(true);
 
-  Serial.println(">>> SISTEMA LISTO: INICIO CICLO <<<");
+  // --- 2. TEST DE MOTORES (Mover un poco y volver) ---
+  Serial.print("-> Test Motor Giro... ");
+  rotaryMotor.move(100); rotaryMotor.runToPosition();
+  rotaryMotor.move(-100); rotaryMotor.runToPosition();
+  Serial.println("[OK]");
+
+  Serial.print("-> Test Actuador Z... ");
+  actuator.move(100); actuator.runToPosition();
+  actuator.move(-100); actuator.runToPosition();
+  Serial.println("[OK]");
   
-  // Iniciar primer movimiento
-  stepper.moveTo(POSICION_MEDIA);
+  apagarMotores(); // Enfriar
+  delay(1000);
+  Serial.println(">>> INICIANDO CICLO DE TRABAJO <<<");
 }
 
-// ================================================================
-// >>> LOOP PRINCIPAL <<<
-// ================================================================
 void loop() {
   
-  // 1. SIEMPRE ejecutar el motor (es vital para AccelStepper)
-  //    Excepto si ya completamos todo.
-  if (estadoActual != COMPLETADO) {
-    stepper.run();
-  }
-
-  // 2. Máquina de Estados (Lógica)
+  // ----------------------------------------
+  // FASE 1: MOVER Y MEDIR (ROTACIÓN)
+  // ----------------------------------------
+  Serial.print("Nivel Z: "); Serial.print(nivelActual);
+  Serial.print(" | Angulo: "); Serial.print(puntoActual);
   
-  // Si el motor llegó a su destino (distanceToGo == 0) verificamos qué hacer
-  if (stepper.distanceToGo() == 0) {
+  // 1. Mover Motor de Giro
+  rotaryMotor.move(PASOS_POR_GIRO);
+  rotaryMotor.runToPosition();
+  apagarMotores(); // Apagar para que no vibre
+  delay(200);      // Estabilizar
+  
+  // 2. Leer Sensor y Mostrar en Serial
+  Serial.print(" -> Midiendo... ");
+  leerSensor(); 
+
+  // Avanzar contador de giro
+  puntoActual++;
+
+  // ----------------------------------------
+  // FASE 2: CAMBIO DE NIVEL (ALTURA)
+  // ----------------------------------------
+  if (puntoActual >= PUNTOS_POR_VUELTA) {
+    // Si terminamos una vuelta completa (12 puntos)
+    puntoActual = 0;
+    nivelActual++;
     
-    unsigned long currentMillis = millis();
-
-    switch (estadoActual) {
+    if (nivelActual < NIVELES_Z) {
+      Serial.println("\n>>> SUBIENDO AL SIGUIENTE NIVEL... <<<");
       
-      case INICIO_AVANCE:
-        // Acaba de llegar a la MITAD
-        tiempoParadaInicio = currentMillis;
-        medicionRealizada = false; // Preparamos para medir
-        estadoActual = PARADA_MEDIA;
-        Serial.println("-> Llegada a la MITAD. Esperando y midiendo...");
-        break;
-
-      case PARADA_MEDIA:
-        // Aquí hacemos dos cosas: Medir y Esperar
-        
-        // A) Intentar medir si no lo hemos hecho aún
-        if (!medicionRealizada) {
-           tomarLecturaSensor("POSICION MEDIA");
-           medicionRealizada = true; // Marcar como hecho para no repetir
-        }
-
-        // B) Verificar si ya pasó el tiempo de espera
-        if (currentMillis - tiempoParadaInicio >= TIEMPO_PARADA_MS) {
-          Serial.println("-> Moviendo al FINAL...");
-          stepper.moveTo(POSICION_FINAL); 
-          estadoActual = AVANCE_FINAL;
-        }
-        break;
-
-      case AVANCE_FINAL:
-        // Acaba de llegar al FINAL
-        tiempoParadaInicio = currentMillis;
-        medicionRealizada = false; // Preparamos para medir
-        estadoActual = PARADA_FINAL;
-        Serial.println("-> Llegada al FINAL. Esperando y midiendo...");
-        break;
-
-      case PARADA_FINAL:
-        // A) Intentar medir
-        if (!medicionRealizada) {
-           tomarLecturaSensor("POSICION FINAL");
-           medicionRealizada = true;
-        }
-
-        // B) Verificar tiempo
-        if (currentMillis - tiempoParadaInicio >= TIEMPO_PARADA_MS) {
-          Serial.println("-> Retornando a INICIO...");
-          stepper.moveTo(POSICION_INICIO); 
-          estadoActual = RETORNO;
-        }
-        break;
-
-      case RETORNO:
-        // Llegó al inicio (0)
-        Serial.println(">>> CICLO COMPLETADO <<<");
-        estadoActual = COMPLETADO;
-        
-        // Apagar motores para ahorrar energía/calor
-        digitalWrite(ENA, LOW);
-        digitalWrite(ENB, LOW);
-        stepper.disableOutputs(); 
-        break;
-        
-      case COMPLETADO:
-        // Nada que hacer
-        break;
+      // Calcular nueva altura absoluta
+      long nuevaAltura = nivelActual * PASOS_ENTRE_NIVELES;
+      actuator.moveTo(nuevaAltura);
+      actuator.runToPosition();
+      
+      apagarMotores();
+      delay(1000); // Esperar a que deje de temblar
+      
+    } else {
+      // SI YA TERMINAMOS TODOS LOS NIVELES
+      Serial.println("\n\n===================================");
+      Serial.println("   ESCANEO COMPLETO - REGRESANDO");
+      Serial.println("===================================");
+      
+      mySensor.ledOff();
+      
+      // Regresar a cero ambos motores
+      actuator.moveTo(0);
+      while(actuator.distanceToGo() != 0) actuator.run();
+      
+      rotaryMotor.moveTo(0);
+      while(rotaryMotor.distanceToGo() != 0) rotaryMotor.run();
+      
+      apagarMotores();
+      Serial.println("SISTEMA EN ESPERA.");
+      while(1); // Detener ejecución aquí
     }
   }
 }
 
-// ================================================================
-// >>> FUNCIÓN AUXILIAR DE LECTURA <<<
-// ================================================================
-void tomarLecturaSensor(String etiqueta) {
-  Serial.print("LEYENDO DATOS EN: ");
-  Serial.println(etiqueta);
+// ==========================================
+// FUNCIONES DE AYUDA
+// ==========================================
 
+void leerSensor() {
+  // Encender LED, Leer, Apagar
+  mySensor.setLedDrive(10); // 10mA
   mySensor.ledOn();
-  // Pequeña espera para estabilizar luz (delay bloqueante pequeño es aceptable aquí
-  // porque el motor está detenido en este estado)
-  delay(50); 
+  delay(50);
+  
+  mySensor.readSpectraDataFromSensor();
+  mySensor.getData(data);
+  
+  mySensor.ledOff();
 
-  if (mySensor.readSpectraDataFromSensor()) {
-     int channelsRead = mySensor.getData(myData);
-     
-     Serial.print("DATA: ");
-     for (int i = 0; i < channelsRead; i++) {
-        Serial.print(myData[i]);
-        Serial.print(",");
-     }
-     Serial.println();
-  } else {
-    Serial.println("Error leyendo sensor.");
-  }
+  // IMPRIMIR DATOS VISIBLES
+  // Solo mostramos 3 canales clave para no saturar la pantalla
+  Serial.print("[F1-Azul: "); Serial.print(data[0]);
+  Serial.print("] [F5-Verde: "); Serial.print(data[4]);
+  Serial.print("] [F8-Rojo: "); Serial.print(data[7]);
+  Serial.println("]");
+}
+
+void apagarMotores() {
+  // Corta la energía para enfriar drivers y motor
+  digitalWrite(Z_IN1, LOW); digitalWrite(Z_IN2, LOW); 
+  digitalWrite(Z_IN3, LOW); digitalWrite(Z_IN4, LOW);
+  digitalWrite(R_IN1, LOW); digitalWrite(R_IN2, LOW); 
+  digitalWrite(R_IN3, LOW); digitalWrite(R_IN4, LOW);
+}
