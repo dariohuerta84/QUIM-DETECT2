@@ -1,1 +1,1 @@
-#### Aca se mostraran todos los entregables del Grupo 5
+#### Entregables del Proyecto QUIM-DETECT2 - Matias Dario Huerta Cruz
