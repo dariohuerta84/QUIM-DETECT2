@@ -53,13 +53,9 @@ Desarrollar un **sistema portátil de bajo costo** capaz de identificar la prese
 
 ---
 
-## 👥 Equipo de Trabajo  
+## 👤 Autor  
 
 - **Matias Dario Huerta Cruz**  
-- **Andres Steven Rodas Janampa**  
-- **Jorge Esteban Roldan Montalvan**  
-- **Juan Diego Lopez Vega**  
-- **Camilla Vanessa Pacora Mendoza**  
 
 ---
 
